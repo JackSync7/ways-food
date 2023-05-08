@@ -1,5 +1,5 @@
 import React from "react";
-import JumbotronImges from "../assets/JumbotronImg.png";
+import JumbotronImges from "../assets/Jumbotronfoto.png";
 import UserMenu from "../pages/customer/UserMenu";
 
 function Jumbotron() {

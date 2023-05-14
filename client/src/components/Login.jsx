@@ -36,7 +36,7 @@ function Login() {
       } else {
         navigate("/");
       }
-      setAuthToken(localStorage.token);
+      setAuthToken(response.data.data.token);
       Swal.fire({
         position: "center",
         icon: "success",

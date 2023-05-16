@@ -116,6 +116,7 @@ function Checkout() {
           alert("you closed the popup without finishing the payment");
         },
       });
+      const deleteall = await API.delete("/delete-order");
     } catch (error) {
       console.log("transaction failed : ", error);
     }

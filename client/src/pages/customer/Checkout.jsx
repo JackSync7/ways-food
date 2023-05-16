@@ -175,6 +175,29 @@ function Checkout() {
     setOpenMap(false);
     // setForm({ location: lngLat });
   };
+
+  const deleteOrder = useMutation((id) => {
+    try {
+      Swal.fire({
+        title: "Are you sure want to delete this Order?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          await API.delete(`/order/${id}`);
+          refetch();
+        }
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  });
+
   return (
     <div className="w-3/4 mx-auto h-[100vw] py-20 px-10 ">
       <p className="text-2xl font-semibold text-brownMain text-left">
@@ -252,11 +275,8 @@ function Checkout() {
                       </div>
                       <div className="text-redOld mr-5 flex flex-col justify-center items-center gap-2">
                         <div>Rp.{data?.product.price}</div>
-                        <div>
-                          <AiFillDelete
-                            size={24}
-                            onClick={() => alert("HELLOW")}
-                          />
+                        <div onClick={() => deleteOrder.mutate(data?.id)}>
+                          <AiFillDelete size={24} />
                         </div>
                       </div>
                     </div>

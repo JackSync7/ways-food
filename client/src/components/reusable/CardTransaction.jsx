@@ -16,13 +16,24 @@ function CardTransaction(props) {
         </div>
         <div>
           <img className="w-20" src={foto} alt="loading image" />
-          <p className="bg-greenLow px-4 font-sans text-greenHigh text-sm">
-            {props.status}
-          </p>
+          <Statuspayment status={props.status} />
         </div>
       </div>
     </div>
   );
 }
+
+const Statuspayment = ({ status }) => {
+  switch (status) {
+    case "pending":
+      return <p className="text-orange-500">Pending</p>;
+    case "success":
+      return <span className="text-green-700">Success</span>;
+    case "failed":
+      return <span className="text-red-500">Failed</span>;
+    default:
+      return;
+  }
+};
 
 export default CardTransaction;

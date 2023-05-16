@@ -8,7 +8,7 @@ import { useQuery } from "react-query";
 
 function Profile() {
   const [state, dispatch] = useContext(UserContext);
-
+  console.log(state);
   let {
     data: getTransaction,
     isLoading,
@@ -28,7 +28,7 @@ function Profile() {
             <p className="text-2xl font-semibold text-left ml-16">My Profile</p>
             <div className="mt-4 flex">
               <div>
-                <img className="w-52" src={Foto} />
+                <img className="w-52" src={state.user.image} />
                 <Link to="/edit-profile">
                   <button className="w-52 text-lg bg-brownMain text-neutral-50 py-1 mt-2 rounded-md">
                     Edit Profile

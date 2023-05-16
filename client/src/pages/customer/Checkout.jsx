@@ -253,7 +253,7 @@ function Checkout() {
                       <div className="text-redOld mr-5 flex flex-col justify-center items-center">
                         <div>Rp.{data?.product.price}</div>
                         <div>
-                          <AiFillDelete size={12} />
+                          <AiFillDelete size={28} />
                         </div>
                       </div>
                     </div>

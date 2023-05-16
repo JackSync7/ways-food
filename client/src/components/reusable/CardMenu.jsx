@@ -39,7 +39,7 @@ function CardMenu(props) {
             alt="Shoes"
           />
         </figure>
-        <div className="card-body">
+        <div className="card-body flex justify-between">
           <h2 className="card-title">{props.title}</h2>
           <p className="text-left text-redOld font-semibold">
             Rp.{props.price},-

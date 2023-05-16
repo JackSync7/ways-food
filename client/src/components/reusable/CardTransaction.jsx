@@ -26,11 +26,11 @@ function CardTransaction(props) {
 const Statuspayment = ({ status }) => {
   switch (status) {
     case "pending":
-      return <p className="text-orange-500">Pending</p>;
+      return <p className="bg-yellowMain text-brownMain">Pending</p>;
     case "success":
-      return <p className="text-green-700">Successs</p>;
+      return <p className="bg-greenLow text-brownMain">Success</p>;
     case "failed":
-      return <p className="text-red-500">Failed</p>;
+      return <p className="bg-redOld text-brownMain">Failed</p>;
     default:
       return;
   }

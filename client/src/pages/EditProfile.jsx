@@ -27,7 +27,7 @@ function EditProfile() {
     phone: "",
     location: "",
   });
-  console.log("ini state", state);
+  console.log("ini state", state.user.id);
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -52,7 +52,11 @@ function EditProfile() {
       formData.set("phone", form.phone);
       formData.set("location", longlat);
 
-      const response = await API.patch(`/update-user/${3}`, formData, config);
+      const response = await API.patch(
+        `/update-user/${state.user.id}`,
+        formData,
+        config
+      );
       console.log("add Product success", response);
       Swal.fire({
         position: "center",

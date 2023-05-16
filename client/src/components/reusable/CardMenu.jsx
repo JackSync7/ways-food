@@ -28,6 +28,27 @@ function CardMenu(props) {
       console.log(err);
     }
   });
+  const handleDelete = useMutation((id) => {
+    try {
+      Swal.fire({
+        title: "Are you sure want to delete this Order?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          await API.delete(`/product/${id}`);
+          getProductOrder();
+        }
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  });
 
   return (
     <div className="">
@@ -39,11 +60,11 @@ function CardMenu(props) {
             alt="Shoes"
           />
         </figure>
-        <div className="card-body flex justify-between">
+        <div className="card-body flex flex-row justify-between">
           <h2 className="card-title">{props.title}</h2>
-          <p className="text-left text-redOld font-semibold">
+          <div className="text-left text-redOld font-semibold">
             Rp.{props.price},-
-          </p>
+          </div>
           {state.user.role !== "partner" && (
             <div className="card-actions justify-end">
               <div className="flex gap-5">
@@ -80,7 +101,11 @@ function CardMenu(props) {
 
           {state.user.role === "partner" && (
             <div>
-              <AiFillDelete size={24} />
+              <AiFillDelete
+                size={24}
+                className="bg-redOld"
+                onClick={() => handleDelete(props.id)}
+              />
             </div>
           )}
         </div>

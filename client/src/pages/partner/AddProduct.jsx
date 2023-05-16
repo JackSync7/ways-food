@@ -125,6 +125,7 @@ function AddProduct() {
               image={data.image}
               title={data.title}
               price={data.price}
+              id={data.id}
             />
           ))}
       </div>

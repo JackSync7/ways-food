@@ -253,7 +253,10 @@ function Checkout() {
                       <div className="text-redOld mr-5 flex flex-col justify-center items-center gap-2">
                         <div>Rp.{data?.product.price}</div>
                         <div>
-                          <AiFillDelete size={28} />
+                          <AiFillDelete
+                            size={24}
+                            onClick={() => alert("HELLOW")}
+                          />
                         </div>
                       </div>
                     </div>

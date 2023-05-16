@@ -250,10 +250,10 @@ function Checkout() {
                       <div className="flex gap-2 mt-2">
                         <p>x{data?.qty}</p>
                       </div>
-                      <div className="text-redOld mr-5 flex flex-col">
+                      <div className="text-redOld mr-5 flex flex-col justify-center items-center">
                         <div>Rp.{data?.product.price}</div>
                         <div>
-                          <AiFillDelete />
+                          <AiFillDelete size={12} />
                         </div>
                       </div>
                     </div>

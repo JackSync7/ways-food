@@ -60,54 +60,52 @@ function CardMenu(props) {
             alt="Shoes"
           />
         </figure>
-        <div className="card-body flex flex-row justify-between">
+        <div className="card-body">
           <h2 className="card-title">{props.title}</h2>
-          <div className="text-left text-redOld font-semibold">
-            Rp.{props.price},-
-          </div>
-          {state.user.role !== "partner" && (
-            <div className="card-actions justify-end">
-              <div className="flex gap-5">
+          <div className="flex flex-row justify-between">
+            <div className="text-left text-redOld font-semibold">
+              Rp.{props.price},-
+            </div>
+            {state.user.role !== "partner" && (
+              <div className="card-actions justify-end">
+                <div className="flex gap-5">
+                  <button
+                    onClick={() => {
+                      setQty(qty - 1);
+                      if (qty <= 1) setQty(1);
+                    }}
+                    className=" px-3 rounded-md text-neutral-50 text-xl bg-brownMain"
+                  >
+                    -
+                  </button>
+                  <p className="font-semi-bold text-lg">{qty}</p>
+                  <button
+                    onClick={() => {
+                      setQty(qty + 1);
+                    }}
+                    className=" px-3 rounded-md text-neutral-50 text-xl bg-brownMain"
+                  >
+                    +
+                  </button>
+                </div>
+
                 <button
-                  onClick={() => {
-                    setQty(qty - 1);
-                    if (qty <= 1) setQty(1);
-                  }}
-                  className=" px-3 rounded-md text-neutral-50 text-xl bg-brownMain"
+                  onClick={() =>
+                    addOrder.mutate({ idProd: props.id, qtyProd: qty })
+                  }
+                  className="w-full bg-yellowMain font-bold text-lg text-neutral-50 py-2 rounded-md"
                 >
-                  -
-                </button>
-                <p className="font-semi-bold text-lg">{qty}</p>
-                <button
-                  onClick={() => {
-                    setQty(qty + 1);
-                  }}
-                  className=" px-3 rounded-md text-neutral-50 text-xl bg-brownMain"
-                >
-                  +
+                  Order
                 </button>
               </div>
+            )}
 
-              <button
-                onClick={() =>
-                  addOrder.mutate({ idProd: props.id, qtyProd: qty })
-                }
-                className="w-full bg-yellowMain font-bold text-lg text-neutral-50 py-2 rounded-md"
-              >
-                Order
-              </button>
-            </div>
-          )}
-
-          {state.user.role === "partner" && (
-            <div>
-              <AiFillDelete
-                size={24}
-                className="bg-redOld"
-                onClick={() => handleDelete(props.id)}
-              />
-            </div>
-          )}
+            {state.user.role === "partner" && (
+              <div onClick={() => handleDelete(props.id)}>
+                <AiFillDelete size={24} className="bg-redOld" />
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -62,7 +62,7 @@ function Profile() {
           <p className="text-2xl font-medium text-neutral-800">
             History Transaction
           </p>
-          <div className="overflow-auto h-full">
+          <div className="overflow-auto h-full flex flex-col-reverse">
             {!isLoading &&
               getTransaction?.map((data, i) => (
                 <CardTransaction

@@ -14,7 +14,7 @@ function CardTransaction(props) {
             Total : Rp.{props.total}
           </p>
         </div>
-        <div>
+        <div className="flex flex-col gap-2">
           <img className="w-20" src={foto} alt="loading image" />
           <Statuspayment status={props.status} />
         </div>
@@ -26,11 +26,11 @@ function CardTransaction(props) {
 const Statuspayment = ({ status }) => {
   switch (status) {
     case "pending":
-      return <p className="bg-yellowMain text-brownMain">Pending</p>;
+      return <p className="bg-yellowMain text-brownMain text-sm">Pending</p>;
     case "success":
-      return <p className="bg-greenLow text-brownMain">Success</p>;
+      return <p className="bg-greenLow text-brownMain text-sm">Success</p>;
     case "failed":
-      return <p className="bg-redOld text-brownMain">Failed</p>;
+      return <p className="bg-redOld text-neutral-50 text-sm">Failed</p>;
     default:
       return;
   }

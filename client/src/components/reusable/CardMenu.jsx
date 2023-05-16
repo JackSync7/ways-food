@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { API } from "../../config/api";
 import { AiFillDelete } from "react-icons/ai";
 import { useMutation } from "react-query";
+import Swal from "sweetalert2";
 
 function CardMenu(props) {
   const [state] = useContext(UserContext);

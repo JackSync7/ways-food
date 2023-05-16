@@ -28,9 +28,9 @@ const Statuspayment = ({ status }) => {
     case "pending":
       return <p className="text-orange-500">Pending</p>;
     case "success":
-      return <span className="text-green-700">Success</span>;
+      return <p className="text-green-700">Successs</p>;
     case "failed":
-      return <span className="text-red-500">Failed</span>;
+      return <p className="text-red-500">Failed</p>;
     default:
       return;
   }

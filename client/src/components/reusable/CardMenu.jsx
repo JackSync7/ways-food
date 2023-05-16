@@ -102,7 +102,7 @@ function CardMenu(props) {
 
             {state.user.role === "partner" && (
               <div onClick={() => handleDelete.mutate(props.id)}>
-                <AiFillDelete size={24} className="bg-redOld" />
+                <AiFillDelete size={24} color="red" />
               </div>
             )}
           </div>

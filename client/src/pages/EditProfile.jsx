@@ -27,16 +27,7 @@ function EditProfile() {
     phone: "",
     location: "",
   });
-
-  let {
-    data: getMenu,
-    isLoading,
-    refetch,
-  } = useQuery("getProducts", async () => {
-    const response = await API.get("/products");
-    return response.data.data;
-  });
-
+  console.log("ini state", state);
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -61,7 +52,7 @@ function EditProfile() {
       formData.set("phone", form.phone);
       formData.set("location", longlat);
 
-      const response = await API.patch("/user", formData, config);
+      const response = await API.patch(`/update-user/${3}`, formData, config);
       console.log("add Product success", response);
       Swal.fire({
         position: "center",

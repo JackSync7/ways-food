@@ -190,7 +190,7 @@ function Checkout() {
         if (result.isConfirmed) {
           Swal.fire("Deleted!", "Your file has been deleted.", "success");
           await API.delete(`/order/${id}`);
-          refetch();
+          getProductOrder();
         }
       });
     } catch (err) {

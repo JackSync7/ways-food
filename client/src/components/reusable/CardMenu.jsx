@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { UserContext } from "../../context/userContext";
 import { Link, useParams } from "react-router-dom";
 import { API } from "../../config/api";
+import { AiFillDelete } from "react-icons/ai";
 import { useMutation } from "react-query";
 
 function CardMenu(props) {
@@ -74,6 +75,12 @@ function CardMenu(props) {
               >
                 Order
               </button>
+            </div>
+          )}
+
+          {state.user.role === "partner" && (
+            <div>
+              <AiFillDelete size={24} />
             </div>
           )}
         </div>

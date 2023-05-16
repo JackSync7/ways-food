@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import Image from "../../assets/sate-ayam.jpg";
 import { BiLocationPlus } from "react-icons/bi";
+import { AiFillDelete } from "react-icons/ai";
 import Map, { GeolocateControl, Marker, NavigationControl } from "react-map-gl";
 import { useMutation, useQuery } from "react-query";
 import { API } from "../../config/api";
@@ -237,7 +238,7 @@ function Checkout() {
               <div className="mt-4 border-t-2 border-brownMain py-4">
                 <div className="flex">
                   <img
-                    className="w-36 max-h-28 object-cover"
+                    className="w-36 h-28 object-cover"
                     src={data.product.image}
                     alt=""
                   />
@@ -249,8 +250,11 @@ function Checkout() {
                       <div className="flex gap-2 mt-2">
                         <p>x{data?.qty}</p>
                       </div>
-                      <div className="text-redOld mr-5">
-                        {data?.product.price}
+                      <div className="text-redOld mr-5 flex flex-col">
+                        <div>Rp.{data?.product.price}</div>
+                        <div>
+                          <AiFillDelete />
+                        </div>
                       </div>
                     </div>
                   </div>

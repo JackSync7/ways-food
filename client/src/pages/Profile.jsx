@@ -31,7 +31,7 @@ function Profile() {
     getTransactions();
   }, []);
 
-  console.log("FUNCTION ; ", dataTrans);
+  console.log("FUNCTION ; ", response.data.data);
   let {
     data: getTransaction,
     isLoading,

@@ -1,12 +1,16 @@
 import React from "react";
 import foto from "../../assets/Logo.png";
+import { UserContext } from "../../context/userContext";
 
 function CardTransaction(props) {
+  const [state] = UserContext(UserContext);
   return (
     <div className="">
       <div className="w-96 p-6 text-lg h-28 gap-2 bg-white shadow-lg font-serif font-semibold flex justify-center items-center">
         <div className="mr-32 mx-auto">
-          <p className="text-neutral-800 text-sm text-left">{props.name}</p>
+          <p className="text-neutral-800 text-sm text-left">
+            {state?.user.role === "partner" ? props.nameBuyer : props.name}
+          </p>
           <p className="text-neutral-700 font-sans text-xs text-left">
             12 March 2022
           </p>

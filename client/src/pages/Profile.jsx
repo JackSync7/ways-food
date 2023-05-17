@@ -23,8 +23,8 @@ function Profile() {
     data: getTransaction,
     isLoading,
     refetch,
-  } = useQuery("getTransactionUser", async () => {
-    const response = await API.get(`/transaction-user`);
+  } = useQuery("getTransaction", async () => {
+    const response = await API.get(`/transaction-partner`);
 
     return response.data.data;
   });

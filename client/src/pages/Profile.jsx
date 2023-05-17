@@ -16,7 +16,6 @@ function Profile() {
   }
 
   console.log("ini state : ", state);
-  console.log("ini role : ", role);
 
   let {
     data: getTransaction,

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Foto from "../assets/foto.png";
 import { UserContext } from "../context/userContext";
 import CardTransaction from "../components/reusable/CardTransaction";
@@ -9,11 +9,14 @@ import { useQuery } from "react-query";
 function Profile() {
   const [state] = useContext(UserContext);
   const [isRole, setIsRole] = useState("");
-  if (state.user.role === "partner") {
-    setIsRole("/transaction-partner");
-  } else if (state.user.role === "customer") {
-    setIsRole("/transaction-user");
-  }
+
+  useEffect(() => {
+    if (state.user.role === "partner") {
+      setIsRole("/transaction-partner");
+    } else if (state.user.role === "customer") {
+      setIsRole("/transaction-user");
+    }
+  }, []);
 
   console.log(state);
   let {

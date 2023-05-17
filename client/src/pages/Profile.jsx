@@ -77,7 +77,7 @@ function Profile() {
               getTransaction?.map((data, i) => (
                 <CardTransaction
                   name={data.seller.fullname}
-                  nameBuyer={data.buyer.fullname}
+                  nameBuyer={data.userOrder.fullname}
                   status={data.status}
                   total={data.totalPrice}
                 />

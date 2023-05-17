@@ -8,15 +8,15 @@ import { useQuery } from "react-query";
 
 function Profile() {
   const [state] = useContext(UserContext);
-  const [isRole, setIsRole] = useState("/transaction-user");
+  // const [isRole, setIsRole] = useState("/transaction-user");
 
-  useEffect(() => {
-    if (state.user.role === "partner") {
-      setIsRole("/transaction-partner");
-    } else if (state.user.role === "customer") {
-      setIsRole("/transaction-user");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (state.user.role === "partner") {
+  //     setIsRole("/transaction-partner");
+  //   } else if (state.user.role === "customer") {
+  //     setIsRole("/transaction-user");
+  //   }
+  // }, []);
 
   console.log(state);
   let {
@@ -24,7 +24,7 @@ function Profile() {
     isLoading,
     refetch,
   } = useQuery("getTransactionUser", async () => {
-    const response = await API.get(`${isRole}`);
+    const response = await API.get(`/transaction-partner`);
 
     return response.data.data;
   });

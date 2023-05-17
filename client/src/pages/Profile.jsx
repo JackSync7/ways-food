@@ -18,7 +18,7 @@ function Profile() {
   //     setIsRole("/transaction-user");
   //   }
   // }, []);
-  const gettransaction = async () => {
+  const getTransactions = async () => {
     try {
       const response = await API.get(`/transaction-partner`);
       setDataTrans(response.data.data);
@@ -28,7 +28,7 @@ function Profile() {
   };
 
   useEffect(() => {
-    getTransaction();
+    getTransactions();
   }, []);
 
   console.log("FUNCTION ; ", dataTrans);

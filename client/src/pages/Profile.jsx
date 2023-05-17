@@ -8,7 +8,7 @@ import { useQuery } from "react-query";
 
 function Profile() {
   const [state] = useContext(UserContext);
-  const [isRole, setIsRole] = useState("");
+  const [isRole, setIsRole] = useState("/transaction-user");
 
   useEffect(() => {
     if (state.user.role === "partner") {

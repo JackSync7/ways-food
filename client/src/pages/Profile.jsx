@@ -22,7 +22,7 @@ function Profile() {
     try {
       const response = await API.get(`/transaction-user`);
       setDataTrans(response.data.data);
-      console.log("FUNCTION ; ", response.data.data);
+      console.log("FUNCTION ; ", response);
     } catch (err) {
       console.log(err);
     }

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Foto from "../assets/foto.png";
 import { UserContext } from "../context/userContext";
 import CardTransaction from "../components/reusable/CardTransaction";
@@ -8,6 +8,7 @@ import { useQuery } from "react-query";
 
 function Profile() {
   const [state, dispatch] = useContext(UserContext);
+  const [role, setRole] = useState("");
 
   if (state.user.role === "partner") {
     setRole("/transaction-partner");
@@ -16,6 +17,7 @@ function Profile() {
   }
 
   console.log("ini state : ", state);
+  console.log("ini role : ", role);
 
   let {
     data: getTransaction,

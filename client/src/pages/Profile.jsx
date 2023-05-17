@@ -16,15 +16,12 @@ function Profile() {
     setRole("/transaction-user");
   }
 
-  console.log("ini state : ", state);
-  console.log("ini role : ", role);
-
   let {
     data: getTransaction,
     isLoading,
     refetch,
   } = useQuery("getTransactionUser", async () => {
-    const response = await API.get(`/transaction-user`);
+    const response = await API.get(`${role}`);
 
     return response.data.data;
   });

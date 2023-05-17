@@ -20,7 +20,7 @@ function Profile() {
   // }, []);
   const getTransactions = async () => {
     try {
-      const response = await API.get(`/transaction-partner`);
+      const response = await API.get(`/transaction-user`);
       setDataTrans(response.data.data);
     } catch (err) {
       console.log(err);

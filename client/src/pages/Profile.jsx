@@ -18,19 +18,20 @@ function Profile() {
       setIsRole("/transaction-user");
     }
   }, []);
-  // const getTransactions = async () => {
-  //   try {
-  //     const response = await API.get(`/transaction-partner`);
-  //     setDataTrans(response.data.data);
-  //     console.log("FUNCTION ; ", response);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
-  // useEffect(() => {
-  //   getTransactions();
-  // }, []);
+  const getTransactions = async () => {
+    try {
+      const response = await API.get(isRole);
+      console.log("FUNCTION ; ", response);
+      setDataTrans(response.data.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getTransactions();
+  }, []);
   console.log("ini rolee tes : ", isRole);
   let {
     data: getTransaction,

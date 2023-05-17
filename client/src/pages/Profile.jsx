@@ -8,6 +8,7 @@ import { useQuery } from "react-query";
 
 function Profile() {
   const [state] = useContext(UserContext);
+  const [dataTrans, setDataTrans] = useState([]);
   // const [isRole, setIsRole] = useState("/transaction-user");
 
   // useEffect(() => {
@@ -17,8 +18,20 @@ function Profile() {
   //     setIsRole("/transaction-user");
   //   }
   // }, []);
+  const gettransaction = async () => {
+    try {
+      const response = await API.get(`/transaction-partner`);
+      setDataTrans(response.data.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-  console.log(state);
+  useEffect(() => {
+    getTransaction();
+  }, []);
+
+  console.log("FUNCTION ; ", dataTrans);
   let {
     data: getTransaction,
     isLoading,
@@ -28,7 +41,7 @@ function Profile() {
 
     return response.data.data;
   });
-  console.log(getTransaction);
+  console.log("QUERY : ", getTransaction);
 
   return (
     <div className="mx-auto h-[100vh] bg-neutral-50 p-20">

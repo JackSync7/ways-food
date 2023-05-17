@@ -22,6 +22,7 @@ function Profile() {
     try {
       const response = await API.get(`/transaction-user`);
       setDataTrans(response.data.data);
+      console.log("FUNCTION ; ", response.data.data);
     } catch (err) {
       console.log(err);
     }
@@ -31,7 +32,6 @@ function Profile() {
     getTransactions();
   }, []);
 
-  console.log("FUNCTION ; ", response.data.data);
   let {
     data: getTransaction,
     isLoading,

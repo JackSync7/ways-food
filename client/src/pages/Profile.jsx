@@ -8,36 +8,36 @@ import { useQuery } from "react-query";
 
 function Profile() {
   const [state] = useContext(UserContext);
-  const [dataTrans, setDataTrans] = useState([]);
-  // const [isRole, setIsRole] = useState("/transaction-user");
-
-  // useEffect(() => {
-  //   if (state.user.role === "partner") {
-  //     setIsRole("/transaction-partner");
-  //   } else if (state.user.role === "customer") {
-  //     setIsRole("/transaction-user");
-  //   }
-  // }, []);
-  const getTransactions = async () => {
-    try {
-      const response = await API.get(`/transaction-partner`);
-      setDataTrans(response.data.data);
-      console.log("FUNCTION ; ", response);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const [dataTrans, setDataTrans] = useState([]);
+  const [isRole, setIsRole] = useState("");
 
   useEffect(() => {
-    getTransactions();
+    if (state.user.role === "partner") {
+      setIsRole("/transaction-partner");
+    } else if (state.user.role === "customer") {
+      setIsRole("/transaction-user");
+    }
   }, []);
+  // const getTransactions = async () => {
+  //   try {
+  //     const response = await API.get(`/transaction-partner`);
+  //     setDataTrans(response.data.data);
+  //     console.log("FUNCTION ; ", response);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
+  // useEffect(() => {
+  //   getTransactions();
+  // }, []);
+  console.log("ini rolee tes : ", isRole);
   let {
     data: getTransaction,
     isLoading,
     refetch,
   } = useQuery("getTransaction", async () => {
-    const response = await API.get(`/transaction-partner`);
+    const response = await API.get(isRole);
 
     return response.data.data;
   });

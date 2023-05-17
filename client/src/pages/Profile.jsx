@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Foto from "../assets/foto.png";
 import { UserContext } from "../context/userContext";
 import CardTransaction from "../components/reusable/CardTransaction";
@@ -7,14 +7,21 @@ import { API } from "../config/api";
 import { useQuery } from "react-query";
 
 function Profile() {
-  const [state, dispatch] = useContext(UserContext);
+  const [state] = useContext(UserContext);
+  const [isRole, setIsRole] = useState("");
+  if (state.user.role === "partner") {
+    setIsRole("/transaction-partner");
+  } else if (state.user.role === "customer") {
+    setIsRole("/transaction-user");
+  }
+
   console.log(state);
   let {
     data: getTransaction,
     isLoading,
     refetch,
   } = useQuery("getTransactionUser", async () => {
-    const response = await API.get(`/transaction-user`);
+    const response = await API.get(`${isRole}`);
 
     return response.data.data;
   });

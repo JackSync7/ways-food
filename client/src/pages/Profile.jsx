@@ -7,13 +7,13 @@ import { API } from "../config/api";
 import { useQuery } from "react-query";
 
 function Profile() {
-  const [state, dispatch] = useContext(UserContext);
+  const [state] = useContext(UserContext);
   const [role, setRole] = useState("");
 
   if (state.user.role === "partner") {
-    setRole("/transaction-partner");
-  } else if (state.user.role === "customer") {
-    setRole("/transaction-user");
+    setRole("transaction-partner");
+  } else {
+    setRole("transaction-user");
   }
 
   let {
@@ -21,7 +21,7 @@ function Profile() {
     isLoading,
     refetch,
   } = useQuery("getTransactionUser", async () => {
-    const response = await API.get(`${role}`);
+    const response = await API.get(`/${role}`);
 
     return response.data.data;
   });

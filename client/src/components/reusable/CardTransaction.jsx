@@ -9,7 +9,7 @@ function CardTransaction(props) {
       <div className="w-96 p-6 text-lg h-28 gap-2 bg-white shadow-lg font-serif font-semibold flex justify-center items-center">
         <div className="mr-32 mx-auto">
           <p className="text-neutral-800 text-sm text-left">
-            {/* {state?.user.role === "partner" ? props.nameBuyer : props.name} */}
+            {state?.user.role === "partner" ? props.nameBuyer : props.name}
           </p>
           <p className="text-neutral-700 font-sans text-xs text-left">
             12 March 2022
@@ -20,7 +20,7 @@ function CardTransaction(props) {
         </div>
         <div className="flex flex-col gap-2">
           <img className="w-20" src={foto} alt="loading image" />
-          {/* <Statuspayment status={props.status} /> */}
+          <Statuspayment status={props.status} />
         </div>
       </div>
     </div>

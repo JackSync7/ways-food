@@ -93,7 +93,7 @@ function Profile() {
                 <CardTransaction
                   key={i}
                   name={data.seller.fullname}
-                  nameBuyer={data.userOrder.fullname}
+                  // nameBuyer={data.userOrder.fullname}
                   status={data.status}
                   total={data.totalPrice}
                 />

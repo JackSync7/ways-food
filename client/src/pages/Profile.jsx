@@ -87,7 +87,7 @@ function Profile() {
           </p>
           <div className="overflow-auto h-full flex flex-col-reverse">
             {!isLoading &&
-              getTransaction?.map((data, i) => (
+              dataTrans?.map((data, i) => (
                 <CardTransaction
                   name={data.seller.fullname}
                   nameBuyer={data.userOrder.fullname}

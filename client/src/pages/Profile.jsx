@@ -8,7 +8,7 @@ import { useQuery } from "react-query";
 
 function Profile() {
   const [state] = useContext(UserContext);
-  const [dataTrans, setDataTrans] = useState();
+  const [dataTrans, setDataTrans] = useState([]);
   const [isRole, setIsRole] = useState("");
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function Profile() {
   const getTransactions = async () => {
     try {
       const response = await API.get("/transaction-partner");
-      console.log("FUNCTION ; ", response.data.data);
+      // console.log("FUNCTION ; ", response.data.data);
       setDataTrans(response.data.data);
     } catch (err) {
       console.log(err);

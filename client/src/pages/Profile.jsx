@@ -23,17 +23,16 @@ function Profile() {
     try {
       const response = await API.get("/transaction-partner");
       console.log("FUNCTION ; ", response);
-      setDataTrans(response);
+      setDataTrans(response.data.data);
     } catch (err) {
       console.log(err);
     }
   };
-  console.log("coba data yg ini : ", dataTrans);
+
   useEffect(() => {
     getTransactions();
   }, []);
 
-  console.log("ini rolee tes : ", isRole);
   let {
     data: getTransaction,
     isLoading,
@@ -43,7 +42,6 @@ function Profile() {
 
     return response.data.data;
   });
-  console.log("QUERY : ", getTransaction);
 
   return (
     <div className="mx-auto h-[100vh] bg-neutral-50 p-20">

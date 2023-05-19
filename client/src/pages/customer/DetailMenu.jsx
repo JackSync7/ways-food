@@ -52,7 +52,7 @@ function DetailMenu() {
         {!isLoading && getDataPartner.fullname}
       </p>
       <div className="mx-auto">
-        <div className="flex justify-evenly p-10 flex-wrap overflow-auto h-[80vh] px-10 ">
+        <div className="flex justify-evenly bg-greenLow gap-3 p-10 flex-wrap overflow-auto h-[80vh] px-10 ">
           {!isLoading &&
             getMenu?.map((data, index) => (
               <div>

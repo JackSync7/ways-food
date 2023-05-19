@@ -90,12 +90,13 @@ function Profile() {
           <div className="overflow-auto h-full flex flex-col-reverse">
             {!isLoading &&
               dataTrans?.map((data, i) => (
-                <CardTransaction
-                  name={data.seller.fullname}
-                  nameBuyer={data.userOrder.fullname}
-                  status={data.status}
-                  total={data.totalPrice}
-                />
+                // <CardTransaction
+                //   name={data.seller.fullname}
+                //   nameBuyer={data.userOrder.fullname}
+                //   status={data.status}
+                //   total={data.totalPrice}
+                // />
+                <div>tess{i}</div>
               ))}
           </div>
         </div>

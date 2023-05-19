@@ -9,6 +9,7 @@ import { useQuery } from "react-query";
 function Profile() {
   const [state] = useContext(UserContext);
   const [dataTrans, setDataTrans] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [isRole, setIsRole] = useState("");
 
   useEffect(() => {
@@ -24,6 +25,7 @@ function Profile() {
       const response = await API.get("/transaction-partner");
       // console.log("FUNCTION ; ", response.data.data);
       setDataTrans(response.data.data);
+      setIsLoading(false);
     } catch (err) {
       console.log(err);
     }
@@ -33,15 +35,15 @@ function Profile() {
     getTransactions();
   }, []);
   console.log("data mau di loop : ", dataTrans);
-  let {
-    data: getTransaction,
-    isLoading,
-    refetch,
-  } = useQuery("getTransaction", async () => {
-    const response = await API.get("transaction-partner");
+  // let {
+  //   data: getTransaction,
+  //   isLoading,
+  //   refetch,
+  // } = useQuery("getTransaction", async () => {
+  //   const response = await API.get("transaction-partner");
 
-    return response.data.data;
-  });
+  //   return response.data.data;
+  // });
 
   return (
     <div className="mx-auto h-[100vh] bg-neutral-50 p-20">
@@ -86,14 +88,15 @@ function Profile() {
             History Transaction
           </p>
           <div className="overflow-auto h-full flex flex-col-reverse">
-            {dataTrans?.map((data, i) => (
-              <CardTransaction
-                name={data.seller.fullname}
-                nameBuyer={data.userOrder.fullname}
-                status={data.status}
-                total={data.totalPrice}
-              />
-            ))}
+            {!isLoading &&
+              dataTrans?.map((data, i) => (
+                <CardTransaction
+                  name={data.seller.fullname}
+                  nameBuyer={data.userOrder.fullname}
+                  status={data.status}
+                  total={data.totalPrice}
+                />
+              ))}
           </div>
         </div>
       </div>

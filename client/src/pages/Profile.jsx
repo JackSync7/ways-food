@@ -33,16 +33,16 @@ function Profile() {
     getTransactions();
   }, []);
   console.log("ini rolee tes : ", isRole);
-  // let {
-  //   data: getTransaction,
-  //   isLoading,
-  //   refetch,
-  // } = useQuery("getTransaction", async () => {
-  //   const response = await API.get(isRole);
+  let {
+    data: getTransaction,
+    isLoading,
+    refetch,
+  } = useQuery("getTransaction", async () => {
+    const response = await API.get(isRole);
 
-  //   return response.data.data;
-  // });
-  // console.log("QUERY : ", getTransaction);
+    return response.data.data;
+  });
+  console.log("QUERY : ", getTransaction);
 
   return (
     <div className="mx-auto h-[100vh] bg-neutral-50 p-20">

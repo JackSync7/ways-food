@@ -43,7 +43,7 @@ function Profile() {
             <p className="text-2xl font-semibold text-left ml-16">My Profile</p>
             <div className="mt-4 flex">
               <div>
-                <img className="w-52" src={state.user.image} />
+                <img className="w-52" src={!isLoading && state.user.image} />
                 <Link to="/edit-profile">
                   <button className="w-52 text-lg bg-brownMain text-neutral-50 py-1 mt-2 rounded-md">
                     Edit Profile
@@ -55,19 +55,21 @@ function Profile() {
                   <p className="text-lg text-left text-brownMain font-medium">
                     Full Name
                   </p>
-                  <p className="text-left">{state.user.fullname}</p>
+                  <p className="text-left">
+                    {!isLoading && state.user.fullname}
+                  </p>
                 </div>
                 <div>
                   <p className="text-lg text-left text-brownMain font-medium">
                     Email
                   </p>
-                  <p className="text-left">{state.user.email}</p>
+                  <p className="text-left">{!isLoading && state.user.email}</p>
                 </div>
                 <div>
                   <p className="text-lg text-left text-brownMain font-medium">
                     Phone
                   </p>
-                  <p className="text-left">{state.user.phone}</p>
+                  <p className="text-left">{!isLoading && state.user.phone}</p>
                 </div>
               </div>
             </div>

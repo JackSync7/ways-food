@@ -48,11 +48,11 @@ function PartnerDashboard() {
             <tbody>
               {!isLoading &&
                 getTransaction?.map((data, i) => (
-                  <tr key={i + 1}>
-                    <th>{i}</th>
+                  <tr key={i}>
+                    <th>{i + 1}</th>
                     <td>{data.userOrder.fullname}</td>
                     <td>
-                      {<Geocoding latitude={latitude} longitude={longitude} />}
+                      <Geocoding latitude={latitude} longitude={longitude} />
                     </td>
                     <td>Rp.{data.totalPrice}</td>
                     <td>{statusResult(data.status)}</td>
@@ -69,11 +69,11 @@ function PartnerDashboard() {
 const statusResult = (status) => {
   switch (status) {
     case "pending":
-      return <p className="bg-yellowMain text-brownMain text-sm">Pending</p>;
+      return <p className=" text-yellowMain text-sm">Pending</p>;
     case "success":
-      return <p className="bg-greenLow text-brownMain text-sm">Success</p>;
+      return <p className=" text-greenHigh text-sm">Success</p>;
     case "failed":
-      return <p className="bg-redOld text-neutral-50 text-sm">Failed</p>;
+      return <p className=" text-redOld text-sm">Failed</p>;
     default:
       return;
   }

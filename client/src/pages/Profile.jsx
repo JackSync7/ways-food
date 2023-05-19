@@ -8,7 +8,7 @@ import { useQuery } from "react-query";
 
 function Profile() {
   const [state] = useContext(UserContext);
-  // const [dataTrans, setDataTrans] = useState([]);
+  const [dataTrans, setDataTrans] = useState([]);
   const [isRole, setIsRole] = useState("");
 
   useEffect(() => {
@@ -33,15 +33,15 @@ function Profile() {
     getTransactions();
   }, []);
   console.log("ini rolee tes : ", isRole);
-  let {
-    data: getTransaction,
-    isLoading,
-    refetch,
-  } = useQuery("getTransaction", async () => {
-    const response = await API.get(isRole);
+  // let {
+  //   data: getTransaction,
+  //   isLoading,
+  //   refetch,
+  // } = useQuery("getTransaction", async () => {
+  //   const response = await API.get(isRole);
 
-    return response.data.data;
-  });
+  //   return response.data.data;
+  // });
   console.log("QUERY : ", getTransaction);
 
   return (
@@ -88,7 +88,7 @@ function Profile() {
           </p>
           <div className="overflow-auto h-full flex flex-col-reverse">
             {!isLoading &&
-              getTransaction?.map((data, i) => (
+              dataTrans?.map((data, i) => (
                 <CardTransaction
                   name={data.seller.fullname}
                   nameBuyer={data.userOrder.fullname}

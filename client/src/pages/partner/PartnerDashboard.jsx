@@ -6,6 +6,8 @@ import Geocoding from "../../components/reusable/Geocoding";
 
 function PartnerDashboard() {
   const [state] = useContext(UserContext);
+  const latitude = -6.402444;
+  const longitude = 106.801487;
   let {
     data: getTransaction,
     isLoading,
@@ -40,7 +42,7 @@ function PartnerDashboard() {
                 <th>Name</th>
                 <th>Address</th>
                 <th>Price</th>
-                <th>Product</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
@@ -50,15 +52,10 @@ function PartnerDashboard() {
                     <th>{i}</th>
                     <td>{data.userOrder.fullname}</td>
                     <td>
-                      {
-                        <Geocoding
-                          latitude={-6.402444}
-                          longitude={106.801487}
-                        />
-                      }
+                      {<Geocoding latitude={latitude} longitude={longitude} />}
                     </td>
-                    <td>Rp.{data.seller.totalPrice}</td>
-                    <td>Canada</td>
+                    <td>Rp.{data.totalPrice}</td>
+                    <td>{statusResult(data.status)}</td>
                   </tr>
                 ))}
             </tbody>
@@ -69,4 +66,16 @@ function PartnerDashboard() {
   );
 }
 
+const statusResult = (status) => {
+  switch (status) {
+    case "pending":
+      return <p className="bg-yellowMain text-brownMain text-sm">Pending</p>;
+    case "success":
+      return <p className="bg-greenLow text-brownMain text-sm">Success</p>;
+    case "failed":
+      return <p className="bg-redOld text-neutral-50 text-sm">Failed</p>;
+    default:
+      return;
+  }
+};
 export default PartnerDashboard;

@@ -22,7 +22,7 @@ function Profile() {
   const getTransactions = async () => {
     try {
       const response = await API.get("/transaction-partner");
-      console.log("FUNCTION ; ", response);
+      console.log("FUNCTION ; ", response.data.data);
       setDataTrans(response.data.data);
     } catch (err) {
       console.log(err);

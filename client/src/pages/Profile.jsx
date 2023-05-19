@@ -90,9 +90,8 @@ function Profile() {
           <div className="overflow-auto h-full flex flex-col-reverse">
             {!isLoading &&
               dataTrans?.map((data, i) => (
-                <div>
+                <div key={i}>
                   <CardTransaction
-                    key={i}
                     name={data.seller.fullname}
                     nameBuyer={data.userOrder.fullname}
                     status={data.status}

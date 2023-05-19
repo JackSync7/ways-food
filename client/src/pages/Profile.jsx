@@ -94,9 +94,9 @@ function Profile() {
                 <div key={i}>
                   <CardTransactions
                     name={data.seller.fullname}
-                    // nameBuyer={data.userOrder.fullname}
-                    // status={data.status}
-                    // total={data.totalPrice}
+                    nameBuyer={data.userOrder.fullname}
+                    status={data.status}
+                    total={data.totalPrice}
                   />
                 </div>
                 // <div>

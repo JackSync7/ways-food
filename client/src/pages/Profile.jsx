@@ -97,7 +97,6 @@ function Profile() {
                   status={data.status}
                   total={data.totalPrice}
                 />
-                // <div>tess{i}</div>
               ))}
           </div>
         </div>

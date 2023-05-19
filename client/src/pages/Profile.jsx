@@ -11,21 +11,32 @@ function Profile() {
   const [isLoading, setIsLoading] = useState(true);
   const [isRole, setIsRole] = useState("");
 
-  useEffect(() => {
-    if (state.user.role === "partner") {
-      setIsRole("/transaction-partner");
-    } else if (state.user.role === "customer") {
-      setIsRole("/transaction-user");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (state.user.role === "partner") {
+  //     setIsRole("/transaction-partner");
+  //   } else if (state.user.role === "customer") {
+  //     setIsRole("/transaction-user");
+  //   }
+  // }, []);
 
   const getTransactions = async () => {
     try {
-      const response = await API.get(isRole);
+      const response = await API.get(getRole(state.user.role));
       setDataTrans(response.data.data);
       setIsLoading(false);
     } catch (err) {
       console.log(err);
+    }
+  };
+
+  const getRole = (roles) => {
+    switch (roles) {
+      case "partner":
+        return "/transaction-partner";
+      case "customer":
+        return "/transaction-user";
+      default:
+        return;
     }
   };
 

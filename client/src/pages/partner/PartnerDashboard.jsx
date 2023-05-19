@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { UserContext } from "../../context/userContext";
 import { useQuery } from "react-query";
 import { API } from "../../config/api";
+import Geocoding from "../../components/reusable/Geocoding";
 
 function PartnerDashboard() {
   const [state] = useContext(UserContext);
@@ -38,18 +39,25 @@ function PartnerDashboard() {
                 <th>No</th>
                 <th>Name</th>
                 <th>Address</th>
-                <th>Product</th>
                 <th>Price</th>
+                <th>Product</th>
               </tr>
             </thead>
             <tbody>
               {!isLoading &&
                 getTransaction?.map((data, i) => (
-                  <tr key={i}>
+                  <tr key={i + 1}>
                     <th>{i}</th>
-                    <td>Cy Ganderton</td>
-                    <td>Quality Control Specialist</td>
-                    <td>Littel, Schaden and Vandervort</td>
+                    <td>{data.userOrder.fullname}</td>
+                    <td>
+                      {
+                        <Geocoding
+                          latitude={-6.402444}
+                          longitude={106.801487}
+                        />
+                      }
+                    </td>
+                    <td>Rp.{data.seller.totalPrice}</td>
                     <td>Canada</td>
                   </tr>
                 ))}

@@ -9,15 +9,6 @@ function Profile() {
   const [state] = useContext(UserContext);
   const [dataTrans, setDataTrans] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isRole, setIsRole] = useState("");
-
-  // useEffect(() => {
-  //   if (state.user.role === "partner") {
-  //     setIsRole("/transaction-partner");
-  //   } else if (state.user.role === "customer") {
-  //     setIsRole("/transaction-user");
-  //   }
-  // }, []);
 
   const getTransactions = async () => {
     try {
@@ -43,7 +34,6 @@ function Profile() {
   useEffect(() => {
     getTransactions();
   }, []);
-  console.log("data mau di loop : ", dataTrans);
 
   return (
     <div className="mx-auto h-[100vh] bg-neutral-50 p-20">

@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import Foto from "../assets/foto.png";
 import { UserContext } from "../context/userContext";
-import CardTransaction from "../components/reusable/CardTransaction";
 import CardTransactions from "../components/reusable/CardTransactions";
 import { Link } from "react-router-dom";
 import { API } from "../config/api";

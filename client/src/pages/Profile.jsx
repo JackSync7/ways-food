@@ -8,7 +8,7 @@ import { useQuery } from "react-query";
 
 function Profile() {
   const [state] = useContext(UserContext);
-  const [dataTrans, setDataTrans] = useState([]);
+  const [dataTrans, setDataTrans] = useState();
   const [isRole, setIsRole] = useState("");
 
   useEffect(() => {

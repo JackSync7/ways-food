@@ -32,7 +32,7 @@ function Profile() {
   useEffect(() => {
     getTransactions();
   }, []);
-
+  console.log("data mau di loop : ", dataTrans);
   let {
     data: getTransaction,
     isLoading,
@@ -86,15 +86,14 @@ function Profile() {
             History Transaction
           </p>
           <div className="overflow-auto h-full flex flex-col-reverse">
-            {!isLoading &&
-              dataTrans?.map((data, i) => (
-                <CardTransaction
-                  name={data.seller.fullname}
-                  nameBuyer={data.userOrder.fullname}
-                  status={data.status}
-                  total={data.totalPrice}
-                />
-              ))}
+            {dataTrans?.map((data, i) => (
+              <CardTransaction
+                name={data.seller.fullname}
+                nameBuyer={data.userOrder.fullname}
+                status={data.status}
+                total={data.totalPrice}
+              />
+            ))}
           </div>
         </div>
       </div>

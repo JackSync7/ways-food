@@ -92,10 +92,10 @@ function Profile() {
               dataTrans?.map((data, i) => (
                 <div key={i}>
                   <CardTransaction
-                    name={data.seller.fullname}
-                    nameBuyer={data.userOrder.fullname}
-                    status={data.status}
-                    total={data.totalPrice}
+                  // name={data.seller.fullname}
+                  // nameBuyer={data.userOrder.fullname}
+                  // status={data.status}
+                  // total={data.totalPrice}
                   />
                 </div>
                 // <div>

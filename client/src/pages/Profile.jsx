@@ -23,22 +23,23 @@ function Profile() {
     try {
       const response = await API.get("/transaction-partner");
       console.log("FUNCTION ; ", response);
-      setDataTrans(response.data.data);
+      setDataTrans(response);
     } catch (err) {
       console.log(err);
     }
   };
-
+  console.log("coba data yg ini : ", dataTrans);
   useEffect(() => {
     getTransactions();
   }, []);
+
   console.log("ini rolee tes : ", isRole);
   let {
     data: getTransaction,
     isLoading,
     refetch,
   } = useQuery("getTransaction", async () => {
-    const response = await API.get(isRole);
+    const response = await API.get("transaction-partner");
 
     return response.data.data;
   });
@@ -88,7 +89,7 @@ function Profile() {
           </p>
           <div className="overflow-auto h-full flex flex-col-reverse">
             {!isLoading &&
-              dataTrans?.map((data, i) => (
+              getTransaction?.map((data, i) => (
                 <CardTransaction
                   name={data.seller.fullname}
                   nameBuyer={data.userOrder.fullname}

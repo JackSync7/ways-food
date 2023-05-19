@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function Geocoding({ latitude, longitude }) {
@@ -30,7 +30,6 @@ function Geocoding({ latitude, longitude }) {
 
   return (
     <div>
-      <h3>Place Name:</h3>
       <p>{placeName}</p>
     </div>
   );

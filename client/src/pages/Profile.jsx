@@ -5,7 +5,6 @@ import CardTransaction from "../components/reusable/CardTransaction";
 import CardTransactions from "../components/reusable/CardTransactions";
 import { Link } from "react-router-dom";
 import { API } from "../config/api";
-import { useQuery } from "react-query";
 
 function Profile() {
   const [state] = useContext(UserContext);
@@ -24,7 +23,6 @@ function Profile() {
   const getTransactions = async () => {
     try {
       const response = await API.get(isRole);
-      // console.log("FUNCTION ; ", response.data.data);
       setDataTrans(response.data.data);
       setIsLoading(false);
     } catch (err) {
@@ -36,15 +34,6 @@ function Profile() {
     getTransactions();
   }, []);
   console.log("data mau di loop : ", dataTrans);
-  // let {
-  //   data: getTransaction,
-  //   isLoading,
-  //   refetch,
-  // } = useQuery("getTransaction", async () => {
-  //   const response = await API.get("transaction-partner");
-
-  //   return response.data.data;
-  // });
 
   return (
     <div className="mx-auto h-[100vh] bg-neutral-50 p-20">

@@ -42,7 +42,7 @@ function Profile() {
 
   //   return response.data.data;
   // });
-  console.log("QUERY : ", getTransaction);
+  // console.log("QUERY : ", getTransaction);
 
   return (
     <div className="mx-auto h-[100vh] bg-neutral-50 p-20">

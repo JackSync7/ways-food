@@ -97,6 +97,7 @@ function Profile() {
                     nameBuyer={data.userOrder.fullname}
                     status={data.status}
                     total={data.totalPrice}
+                    role={state.user.role}
                   />
                 </div>
                 // <div>

@@ -7,7 +7,7 @@ function CardTransactions(props) {
       <div className="w-96 p-6 text-lg h-28 gap-2 bg-white shadow-lg font-serif font-semibold flex justify-center items-center">
         <div className="mr-32 mx-auto">
           <p className="text-neutral-800 text-sm text-left">
-            {/* {state?.user.role === "partner" ? props.nameBuyer : props.name} */}
+            {props.role === "partner" ? props.nameBuyer : props.name}
             {props.name}
             abang
           </p>

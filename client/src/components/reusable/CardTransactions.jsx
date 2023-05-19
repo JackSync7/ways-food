@@ -8,8 +8,6 @@ function CardTransactions(props) {
         <div className="mr-32 mx-auto">
           <p className="text-neutral-800 text-sm text-left">
             {props.role === "partner" ? props.nameBuyer : props.name}
-            {props.name}
-            abang
           </p>
           <p className="text-neutral-700 font-sans text-xs text-left">
             12 March 2022

@@ -15,12 +15,12 @@ function CardTransaction(props) {
             12 March 2022
           </p>
           <p className="text-redOld font-sans text-sm font-medium mt-2 text-left">
-            Total : Rp.{props.total}
+            {/* Total : Rp.{props.total} */}
           </p>
         </div>
         <div className="flex flex-col gap-2">
           <img className="w-20" src={foto} alt="loading image" />
-          <Statuspayment status={props.status} />
+          {/* <Statuspayment status={props.status} /> */}
         </div>
       </div>
     </div>

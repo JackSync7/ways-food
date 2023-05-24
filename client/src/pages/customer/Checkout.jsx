@@ -125,8 +125,8 @@ function Checkout() {
 
   useEffect(() => {
     setSource([
-      dataOrder[0]?.seller.location.split(",")[0],
-      dataOrder[0]?.seller.location.split(",")[1],
+      dataOrder[0]?.seller.location.split(",")[1].slice(0, -1),
+      dataOrder[0]?.seller.location.split(",")[0].slice(1),
     ]);
     setDestination([JSON.stringify(longlat.lat), JSON.stringify(longlat.lng)]);
     setDistanceResult(distance(source, destination, { units: "miles" }));
@@ -140,7 +140,14 @@ function Checkout() {
     }
     refetch();
   }, [longlat]);
-  console.log("tes long lat : ", source);
+  console.log(
+    "tes long lat :1 ",
+    dataOrder[0]?.seller.location.split(",")[1].slice(0, -1)
+  );
+  console.log(
+    "tes long lat :2 ",
+    dataOrder[0]?.seller.location.split(",")[0].slice(0, -1)
+  );
 
   const getTransaction = useMutation(async () => {
     try {

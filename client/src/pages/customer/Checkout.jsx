@@ -140,7 +140,7 @@ function Checkout() {
     }
     refetch();
   }, [longlat]);
-  console.log("tes long lat :1 ", dataOrder[0]?.seller.location.split(",")[1]);
+  console.log("tes long lat :1 ", dataOrder[0]?.seller.location);
 
   const getTransaction = useMutation(async () => {
     try {

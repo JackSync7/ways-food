@@ -9,19 +9,19 @@ import { API } from "../config/api";
 function Home() {
   const [state] = useContext(UserContext);
 
-  let {
-    data: getMenu,
-    isLoading,
-    refetch,
-  } = useQuery("getProducts", async () => {
-    const response = await API.get("/partner");
-    return response.data.data;
-  });
+  // let {
+  //   data: getMenu,
+  //   isLoading,
+  //   refetch,
+  // } = useQuery("getProducts", async () => {
+  //   const response = await API.get("/partner");
+  //   return response.data.data;
+  // });
 
-  if (isLoading) {
-    return <h1>Loading Data....</h1>;
-  }
-  console.log(getMenu);
+  // if (isLoading) {
+  //   return <h1>Loading Data....</h1>;
+  // }
+  // console.log(getMenu);
   return (
     <div className="h-[200vh] w-full py-10 ">
       <Jumbotron />

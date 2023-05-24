@@ -139,8 +139,8 @@ function Checkout() {
       setOngkir(2000000);
     }
     refetch();
+    console.log("sour", source);
   }, [longlat]);
-  console.log("tes long lat :1 ", dataOrder[0]?.seller.location);
 
   const getTransaction = useMutation(async () => {
     try {

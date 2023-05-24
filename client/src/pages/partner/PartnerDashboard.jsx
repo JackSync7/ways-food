@@ -51,9 +51,7 @@ function PartnerDashboard() {
                   <tr key={i}>
                     <th>{i + 1}</th>
                     <td>{data.userOrder.fullname}</td>
-                    <td>
-                      <Geocoding latitude={latitude} longitude={longitude} />
-                    </td>
+                    <td>Indonesia, Jakarta</td>
                     <td>Rp.{data.totalPrice}</td>
                     <td>{statusResult(data.status)}</td>
                   </tr>

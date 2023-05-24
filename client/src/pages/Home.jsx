@@ -28,12 +28,12 @@ function Home() {
       <p className="text-2xl text-brownMain font-semibold text-left ml-36 mt-10">
         Popular Restaurant
       </p>
-      <MenuUser />
+      {/* <MenuUser /> */}
       <p className="text-2xl text-brownMain font-semibold text-left ml-36 mt-10">
         Recomended
       </p>
       <div className="flex gap-5 justify-center mt-10">
-        {!isLoading &&
+        {/* {!isLoading &&
           getMenu
             .slice(0, 4)
             .map((data, index) => (
@@ -43,7 +43,7 @@ function Home() {
                 image={data.image}
                 fullname={data.fullname}
               />
-            ))}
+            ))} */}
       </div>
     </div>
   );

@@ -18,10 +18,8 @@ function Home() {
     return response.data.data;
   });
 
-  if (isLoading) {
-    return <h1>Loading Data....</h1>;
-  }
   console.log(getMenu);
+
   return (
     <div className="h-[200vh] w-full py-10 ">
       <Jumbotron />

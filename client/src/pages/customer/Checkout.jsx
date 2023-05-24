@@ -140,6 +140,7 @@ function Checkout() {
     }
     refetch();
   }, [longlat]);
+  console.log("tes long lat : ", longlat);
 
   const getTransaction = useMutation(async () => {
     try {
